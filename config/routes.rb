@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get 'tickets/index'
   get 'tickets/new'
   get 'users/index'
+  get  'tickets/edit'
+  get  'ticket/update'
   post 'tickets/new'
   post 'prjects/new'
   resources :project_users
