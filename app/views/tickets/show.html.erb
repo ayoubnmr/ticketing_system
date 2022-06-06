@@ -1,0 +1,18 @@
+<h1>show</h1>
+<div class="ticket">
+  <header>
+    <h1><%= @project.name %></h1>
+  </header>
+
+  <header>
+    <h2><%= @ticket.name %></h2>
+  </header>
+<%- @project.tickets.each do |ticket|%>
+                     <%= ticket.name%><br>
+                     <%= ticket.title%><br>
+                     <br>
+                     <%= ticket.content%>
+                      <br>
+                   <% end %>
+ 
+</div>

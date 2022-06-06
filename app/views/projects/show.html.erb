@@ -1,0 +1,20 @@
+<%=@project.name%><br>
+<%=@project.title%><br>
+<%=@project.start%><br>
+<%=@project.end%><br><br><br>
+
+
+
+
+
+
+   
+      <%- @project.tickets.each do |ticket|%>
+                     <%= ticket.name%><br>
+                     <%= ticket.title%><br>
+                     <%= ticket.content%><br>
+                      <%= link_to "Delete", project_ticket_path(@project,ticket) , data: {
+                                  turbo_method: :delete,
+                               turbo_confirm: "Are you sure?" }    %>
+                   
+                   <% end %>
