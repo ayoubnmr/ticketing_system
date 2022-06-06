@@ -11,9 +11,9 @@
                                 <th class="px-6 py-3 border-b-2 border-gray-300"></th>
                             </tr>
                         </thead>
-                        <% @projects.each do |f|%>
                         <tbody class="bg-white">
-                                <tr>
+                        <% @projects.each do |f|%>
+                                <tr>                        
                                     <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                         <div class="flex items-center">
                                             <div>
@@ -22,6 +22,7 @@
                                             </div>
                                         </div>
                                     </td>
+                                    
                                     <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                                       <div>  <%= f.title%></div>
                                     </td>
@@ -29,17 +30,19 @@
                                     <td class="px-6 py-4 whitespace-no-wrap border-b text-blue-900 border-gray-500 text-sm leading-5"><%= f.end%></td>
                                     
                                     <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
-                                    <%= link_to 'Show Project',project_path(f), class: "block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"%>
-                                    <%= link_to "New Ticket", new_project_ticket_path(f) %>
-
-                                    <td>
-                                    <%= link_to "Delete", project_path(f) , data: {
+                                    <button class="relative bg-gray-500 text-white p-2 rounded-lg text-sm uppercase font-semibold tracking-tight overflow-visible">
+                                            <%= link_to 'Show Project',project_path(f)%>
+                                    </button>
+                                    <button class="relative bg-gray-500 text-white p-2 rounded-lg text-sm uppercase font-semibold tracking-tight overflow-visible">
+                                             <%= link_to "Delete", project_path(f) , data: {
                                                                                                 turbo_method: :delete,
                                                                                                 turbo_confirm: "Are you sure?" }    %>
-                                    </td>
+                                    
+                                    </button>
+                                    
                           </tr>
+                          <% end %>
                         </tbody>
-                        <% end %>
                         
                     </table>
                    <%- @project.tickets.each do |ticket|%>

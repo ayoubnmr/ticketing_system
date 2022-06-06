@@ -1,6 +1,6 @@
 class TicketsController < ApplicationController
   before_action :set_project
-  before_action :set_ticket, only: %i(show edit update destroy)
+  before_action :set_ticket, only: %i( show update edit  destroy)
 
   def index
     @tickets = Ticket.all
@@ -11,12 +11,12 @@ class TicketsController < ApplicationController
   end  
 
   def edit
-    @ticket = Tickets.edit(ticket_params)
+    @ticket = @project.tickets.find(params[:id])
   end
 
-  # def new 
-  #   @ticket = @project.tickets.new
-  # end 
+  def new 
+    @ticket = @project.tickets.new
+  end 
 
   def create
     @project = Project.find(params[:project_id])
@@ -29,9 +29,8 @@ class TicketsController < ApplicationController
   end 
   
   def update
-    @ticket = Ticket.edit
-    if @ticket.update
-      redirect_to ticket_path(@ticket), notice: 'Ticket was successfully created.'
+    if @ticket.update(ticket_params)
+      redirect_to project_path(@project), notice: 'Ticket was successfully update.'
     else
       render :new 
     end 
@@ -39,7 +38,7 @@ class TicketsController < ApplicationController
   
   def destroy
     @ticket.destroy
-    redirect_to project_ticket_path, notice: 'Ticket was successfully created.'
+    redirect_to project_ticket_path, notice: 'Ticket was successfully deleted.'
   end 
 private  
 
@@ -48,11 +47,12 @@ def set_project
 end
 
 def set_ticket
+  
   @ticket = @project.tickets.find(params[:id])
 end
 
   def ticket_params
-    params.permit(:name, :title, :content)
+    params.require(:ticket).permit(:name, :title, :content)
   end  
 
 end   
