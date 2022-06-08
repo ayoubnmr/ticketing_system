@@ -1,3 +1,4 @@
+                  <% if user_signed_in? %>
 
 
 
@@ -336,7 +337,6 @@
                     aria-orientation="vertical"
                     aria-label="User menu"
                   >
-                  <% if user_signed_in? %>
                     <%= link_to "profile page", edit_user_registration_path, role:"menuitem",
                       class:"block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-blue-600"
                     %>
@@ -344,7 +344,6 @@
                     <%= link_to "Logout", destroy_user_session_path, role:"menuitem",
                       class:"block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-blue-600"
                     %>
-                    <% end %>
                     
                   </div>
                 </div>
@@ -766,3 +765,4 @@
         }
       }
 </script>
+<% end %>

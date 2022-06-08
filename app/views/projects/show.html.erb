@@ -23,7 +23,16 @@
           </svg>
         </span><%=@project.end%>
       </p>
-      
+      <div class="w-full xl:w-1/4 md:w-1/4 lg:ml-auto">
+          <div class="relative flex flex-col h-full p-8">
+            <button
+                 class="w-full px-4 py-2 mx-auto mt-3 text-white transition duration-500 ease-in-out transform border border-gray-900 rounded-lg text-md hover:bg-gray-900 focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 focus:border-gray-700 focus:bg-gray-800 ">
+                  <%= link_to "New Ticket", new_project_ticket_path(@project)%>
+            </button>
+            
+          </div>
+        </div>
+     
      <%- @project.tickets.each do |ticket|%>
       <div
                     class="flex flex-wrap items-end justify-start w-full transition duration-500 ease-in-out transform bg-black border-2 border-gray-600 rounded-lg hover:border-white ">
@@ -75,7 +84,7 @@
             </button>
             <button
                                 class="w-full px-4 py-2 mx-auto mt-3 text-white transition duration-500 ease-in-out transform border border-gray-900 rounded-lg text-md hover:bg-gray-900 focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 focus:border-gray-700 focus:bg-gray-800 ">
-              <%= link_to "Edit Ticket", [:edit, @project, ticket], method: :put %>                  
+              <%= link_to "Edit Ticket", [:edit, @project, ticket]%>                  
             </button>
           </div>
         </div>
