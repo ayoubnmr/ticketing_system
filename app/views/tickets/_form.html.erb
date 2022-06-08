@@ -33,6 +33,10 @@
                <%= f.text_area :content ,autofocus: true,:class=>'px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600', placeholder:"Ticket content"%>
             </div><br>
 
+                  <%= f.label :status %>
+                  <%= f.select :status, options_for_select(Ticket.statuses.map {|key, value| [key.titleize, Ticket.statuses.key(value)]}, @ticket.status) %>
+
+                
           <div class="pt-4 flex items-center space-x-4">
                <%= link_to 'cancel', root_path, class:"bg-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none"%>
               <%= f.submit "Create",:class=>"bg-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none"%>
