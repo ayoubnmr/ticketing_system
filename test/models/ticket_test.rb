@@ -2,14 +2,14 @@
 #
 # Table name: tickets
 #
-#  id         :integer          not null, primary key
+#  id         :bigint           not null, primary key
 #  content    :string
 #  name       :string
 #  status     :integer
 #  title      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  project_id :integer          not null
+#  project_id :bigint           not null
 #
 # Indexes
 #
@@ -17,7 +17,7 @@
 #
 # Foreign Keys
 #
-#  project_id  (project_id => projects.id)
+#  fk_rails_...  (project_id => projects.id)
 #
 require "test_helper"
 

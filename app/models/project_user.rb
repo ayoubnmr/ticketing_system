@@ -2,11 +2,11 @@
 #
 # Table name: project_users
 #
-#  id         :integer          not null, primary key
+#  id         :bigint           not null, primary key
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  project_id :integer          not null
-#  user_id    :integer          not null
+#  project_id :bigint           not null
+#  user_id    :bigint           not null
 #
 # Indexes
 #
@@ -15,8 +15,8 @@
 #
 # Foreign Keys
 #
-#  project_id  (project_id => projects.id)
-#  user_id     (user_id => users.id)
+#  fk_rails_...  (project_id => projects.id)
+#  fk_rails_...  (user_id => users.id)
 #
 class ProjectUser < ApplicationRecord
   belongs_to :user
