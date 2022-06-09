@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @projects= Project.all
@@ -8,6 +9,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
   end  
+  
   
   def new
     @project = current_user.projects.new
@@ -20,6 +22,7 @@ class ProjectsController < ApplicationController
 
     @project = current_user.projects.new(project_params)
     if @project.save
+      ProjectmailerMailer.project_created.deliver_now
       redirect_to  project_path(@project), notice: 'Project was successfully created.'
     else
       render :new 
@@ -47,7 +50,7 @@ private
      params.require(:project).permit(:project_id, :name , :title , :start , :end)
   end  
 
-
+  
   
   
 end 
