@@ -52,7 +52,7 @@ def set_ticket
 end
 
   def ticket_params
-    params.require(:ticket).permit(:name, :title, :content, :status)
+    params.require(:ticket).permit(:name, :title, :content, :status, :avatar)
   end  
 
 end   

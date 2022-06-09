@@ -34,7 +34,9 @@
             </div><br>
             <%= f.label :status %>
                   <%= f.select :status, options_for_select(Ticket.statuses.map {|key, value| [key.titleize, Ticket.statuses.key(value)]}, @ticket.status) %>
-
+            <div class="flex flex-col">
+                <%= f.file_field :avatar %>
+              </div>  
           <div class="pt-4 flex items-center space-x-4">
                <%= link_to 'cancel', root_path, class:"bg-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none"%>
               <%= f.submit "Update",:class=>"bg-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none"%>

@@ -33,6 +33,11 @@ gem "jbuilder"
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem "pry-rails"
 gem 'simple_form', '~> 5.1'
+gem "paperclip", "~> 6.0.0"
+gem "aws-sdk-s3", require: false
+gem "azure-storage-blob", "~> 2.0", require: false
+gem "google-cloud-storage", "~> 1.11", require: false
+
 
 
 

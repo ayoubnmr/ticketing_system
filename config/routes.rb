@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post 'tickets/new'
   post 'prjects/new'
   resources :project_users
-  root 'users#index'
+  root 'projects#index2'
   resources :projects   do
      resources :tickets
   end 
