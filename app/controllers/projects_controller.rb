@@ -22,7 +22,7 @@ class ProjectsController < ApplicationController
 
     @project = current_user.projects.new(project_params)
     if @project.save
-      # ProjectmailerMailer.project_created.deliver_now
+      ProjectmailerMailer.project_created.deliver_now
       redirect_to  project_path(@project), notice: 'Project was successfully created.'
     else
       render :new 
