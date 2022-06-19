@@ -9,7 +9,8 @@ Bundler.require(*Rails.groups)
 module TicketingSystem
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.0
+config.active_job.queue_adapter = :sidekiq
+Sidekiq.configure_server { |c| c.redis = { url: ENV['REDIS_URL'] } }
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -19,4 +20,5 @@ module TicketingSystem
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
   end
+
 end

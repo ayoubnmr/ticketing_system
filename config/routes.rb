@@ -1,12 +1,6 @@
 Rails.application.routes.draw do
-  get 'tickets/index'
-  get 'tickets/new'
   get 'users/index'
-  get  'tickets/edit'
-  get  'ticket/update'
-
-  post 'tickets/new'
-  post 'prjects/new'
+post 'users/index'
   resources :project_users
   root 'projects#index2'
   resources :projects   do
@@ -20,4 +14,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  require 'sidekiq/web'
+Rails.application.routes.draw do
+  mount Sidekiq::Web => '/sidekiq'
+end
 end

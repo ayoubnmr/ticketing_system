@@ -20,6 +20,10 @@
 #  fk_rails_...  (project_id => projects.id)
 #
 class Ticket < ApplicationRecord
+  # after_create :ticket_details
+  # def ticket_details
+  #   HoheJob.perform_later(self)
+  # end
   belongs_to :project
   enum status: {
     ToDo: 0,

@@ -2,6 +2,12 @@
 <div class="ticket">
   <header>
     <h1><%= @project.name %></h1>
+       <%= current_user.email%>
+       <%= current_user.id%>
+       <%= current_user.password%>
+       <%= current_user.id%>
+       <%= @project.end%>
+       <%= User.all%>
   </header>
 
   <header>
@@ -14,5 +20,4 @@
                      <%= ticket.content%>
                       <br>
                    <% end %>
- 
 </div>

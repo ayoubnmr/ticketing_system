@@ -48,7 +48,6 @@ def set_project
 end
 
 def set_ticket
-  
   @ticket = @project.tickets.find(params[:id])
 end
 

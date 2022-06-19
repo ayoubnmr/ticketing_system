@@ -18,9 +18,14 @@
 #
 class User < ApplicationRecord
   has_many :project_users
-  has_many :projects, through: :project_users  # Include default devise modules. Others available are:
+  has_many :projects, through: :project_users 
+   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-       
+         
+         after_create :project_created
+def project_created
+    ProjectmailerMailer.project_created(User.last).deliver_now
+end
 end

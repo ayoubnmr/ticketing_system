@@ -1,14 +1,11 @@
 class ProjectmailerMailer < ApplicationMailer
+  default from: 'anmr06765@gmail.com'
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.projectmailer_mailer.project_created.subject
-  #
-  def project_created
-    @greeting = "Hi"
+  
+  def project_created(user)
+    @user = user
 
-    mail to: User.all.pluck(:email),subject: 'I created a new Project' 
-
+    mail to: @user.email, subject: 'I created a new Project', form: 'info@gmail.com' 
+    
   end
 end
