@@ -19,7 +19,7 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.find(params[:id])
   end
   def create
-    @project = current_user.projects.build(project_params)
+    @project = current_user.projects.new(project_params)
     if @project.save
       @project.user_id = current_user.id
       ProjectmailerMailer.project_created(User.last).deliver_now
