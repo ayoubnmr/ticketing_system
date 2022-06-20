@@ -22,6 +22,7 @@ class TicketsController < ApplicationController
   def create
     @project = Project.find(params[:project_id])
     @ticket = @project.tickets.new(ticket_params) 
+    ProjectmailerMailer.project_created(current_user).deliver_now
     if @ticket.save
       redirect_to project_path(@project), notice: 'Ticket was successfully created.'
     else

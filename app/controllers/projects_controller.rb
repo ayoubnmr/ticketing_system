@@ -20,9 +20,9 @@ class ProjectsController < ApplicationController
   end
   def create
     @project = current_user.projects.new(project_params)
+    @project.user_id = current_user.id
     if @project.save
-      @project.user_id = current_user.id
-      ProjectmailerMailer.project_created(User.last).deliver_now
+      ProjectmailerMailer.project_created(current_user).deliver_now
       redirect_to  projects_path(@project), notice: 'Project was successfully created.'
     else
       render :new 
