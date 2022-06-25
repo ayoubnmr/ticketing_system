@@ -5,6 +5,7 @@
   UI Design Prototype
   Link : https://dribbble.com/shots/10452538-React-UI-Components
 -->
+
 <div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
   <div class="relative py-3 sm:max-w-xl sm:mx-auto">
     <div class="relative px-4 py-10 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
@@ -15,7 +16,6 @@
             <h2 class="leading-relaxed">Create a Project</h2>
             </div>
         </div>
-       
         <div class="divide-y divide-gray-200">
           <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
              <%= simple_form_for (@project) do |f| %>
@@ -43,7 +43,9 @@
                 </div>
               </div>
             </div>
-            
+            <div class="mb-2">
+    <%= collection_check_boxes(:project, :user_ids, User.all, :id, :email)%> 
+  </div>
          
           <div class="pt-4 flex items-center space-x-4">
                <%= link_to 'cancel', root_path, class:"bg-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none"%>

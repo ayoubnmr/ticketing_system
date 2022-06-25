@@ -6,10 +6,14 @@ class HogeJob < ActiveJob::Base
   # def perform(*args)
   #   # Do something later
   # end
-  def perform(ticket)
-    msg = "A task was created with the following title: #{ticket.title}"
-    log = Log.create! ticket_id: task.id, message: msg
+  def perform
+    puts "lets do it"
+    
+    
+    
+    # msg = "A task was created with the following title: #{ticket.title}"
+    # log = Log.create! ticket_id: task.id, message: msg
 
-    puts log.message
+    # puts log.message
   end
 end

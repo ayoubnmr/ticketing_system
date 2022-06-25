@@ -8,7 +8,7 @@ class TicketsController < ApplicationController
   end
 
   def show
-    @ticket = Ticket.find(params[:id])
+    @ticket = tickets.find(params[:id])
   end  
 
   def edit
@@ -22,8 +22,9 @@ class TicketsController < ApplicationController
   def create
     @project = Project.find(params[:project_id])
     @ticket = @project.tickets.new(ticket_params) 
-    ProjectmailerMailer.project_created(current_user).deliver_now
     if @ticket.save
+
+      GuestsCleanupJob.set(wait_until: 1.year.from_now).perform_later(@ticket , @project)
       redirect_to project_path(@project), notice: 'Ticket was successfully created.'
     else
       render :new, status: :unprocessable_entity  

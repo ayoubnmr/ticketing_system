@@ -4,7 +4,7 @@ post 'users/index'
   resources :project_users
   root 'projects#index2'
   resources :projects   do
-     resources :tickets
+     resources :tickets, except: [:index, :show]
   end 
   devise_for :users
   devise_scope :user do
