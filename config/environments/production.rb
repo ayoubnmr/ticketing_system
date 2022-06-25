@@ -99,7 +99,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   host = 'localhost:3000' #replace with your own url
   config.action_mailer.default_url_options =  { :host => 'localhost:3000', protocol: 'http' }
-
+  config.active_storage.service = :amazon
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",
