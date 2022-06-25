@@ -54,7 +54,6 @@ gem "bootsnap", require: false
 gem "sidekiq", "~> 6.5"
 gem 'sinatra', require: false
 gem 'redis-namespace'
-gem "aws-sdk-s3", require: false
 
 
 # Use Sass to process CSS
