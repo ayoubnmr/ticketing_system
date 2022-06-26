@@ -44,7 +44,9 @@
               </div>
             </div>
             <div class="mb-2">
-    <%= collection_check_boxes(:project, :user_ids, User.all, :id, :email)%> 
+    <%= collection_check_boxes(:project, :user_ids, User.all, :id, :email) do |b|
+   b.label(:"data-value" => b.value) { b.check_box(checked: true) + b.text }
+end%> 
   </div>
          
           <div class="pt-4 flex items-center space-x-4">
