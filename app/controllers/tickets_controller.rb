@@ -6,55 +6,42 @@ class TicketsController < ApplicationController
   def index
     @tickets = Ticket.all
   end
-
   def show
     @ticket = tickets.find(params[:id])
   end  
-
   def edit
     @ticket = @project.tickets.find(params[:id])
   end
-
   def new 
     @ticket = @project.tickets.new
   end 
-
   def create
-    @project = Project.find(params[:project_id])
     @ticket = @project.tickets.new(ticket_params) 
     if @ticket.save
-
-      GuestsCleanupJob.set(wait_until: 1.year.from_now).perform_later(@ticket , @project)
       redirect_to project_path(@project), notice: 'Ticket was successfully created.'
     else
-      render :new, status: :unprocessable_entity  
+      redirect_to new_project_path , status: :unprocessable_entity 
     end
   end 
-  
   def update
     if @ticket.update(ticket_params)
       redirect_to project_path(@project), notice: 'Ticket was successfully update.'
     else
-      render :new 
+      redirect_to new_project_path , status: :unprocessable_entity
     end 
   end 
-  
   def destroy
     @ticket.destroy
     redirect_to project_ticket_path, notice: 'Ticket was successfully deleted.'
   end 
 private  
-
-def set_project
-  @project = Project.find(params[:project_id])
-end
-
-def set_ticket
-  @ticket = @project.tickets.find(params[:id])
-end
-
+  def set_project
+    @project = current_user.projects.find(params[:project_id])
+  end
+  def set_ticket
+    @ticket = @project.tickets.find(params[:id])
+  end
   def ticket_params
-    params.require(:ticket).permit(:name, :title, :content, :status, :avatar)
+    params.require(:ticket).permit(:name, :title, :content, :status, :start, :end, :avatar)
   end  
-
 end   

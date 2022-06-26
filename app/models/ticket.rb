@@ -1,24 +1,3 @@
-# == Schema Information
-#
-# Table name: tickets
-#
-#  id         :bigint           not null, primary key
-#  content    :string
-#  name       :string
-#  status     :integer
-#  title      :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  project_id :bigint           not null
-#
-# Indexes
-#
-#  index_tickets_on_project_id  (project_id)
-#
-# Foreign Keys
-#
-#  fk_rails_...  (project_id => projects.id)
-#
 class Ticket < ApplicationRecord
   belongs_to :project
   enum status: {
@@ -28,4 +7,13 @@ class Ticket < ApplicationRecord
   }
   has_one_attached :avatar
   
+  after_save :perform
+
+  def perform
+    if Date.today == self.end && (status = 1)
+      project.users.each do |user|
+        TicketEndJob.set(wait_until: self.end.to_time).perform_later(self, project ,user )
+      end
+    end
+  end 
 end

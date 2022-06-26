@@ -4,7 +4,9 @@
 #
 #  id         :bigint           not null, primary key
 #  content    :string
+#  end        :date
 #  name       :string
+#  start      :date
 #  status     :integer
 #  title      :string
 #  created_at :datetime         not null

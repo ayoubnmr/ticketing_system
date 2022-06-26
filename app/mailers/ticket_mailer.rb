@@ -9,7 +9,6 @@ class TicketMailer < ApplicationMailer
     @project = params[:project]
     @user = params[:user]
     @ticket = params[:ticket] 
-    mail to: @user.email, subject: ",I created a new Ticket,#{@ticket.name}, in #{@project.name}", form: 'info@gmail.com' 
-    
+    mail to: @user.email, subject: ",I created a new Ticket,#{@ticket.name}, in #{@project.name}", form: 'info@gmail.com'   
   end
 end
