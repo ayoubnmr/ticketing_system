@@ -1,0 +1,152 @@
+[33mcommit e4262cbb3b8d3ca57341cf15ad2335ec1877a1f2[m[33m ([m[1;36mHEAD -> [m[1;32mdevelop[m[33m, [m[1;31morigin/develop[m[33m)[m
+Author: ayoub <anmr06765@gmail.com>
+Date:   Sun Jun 26 12:30:58 2022 +0300
+
+    all done
+
+[33mcommit a8377596e2168095542fb402498828e8b9654815[m
+Author: ayoub <anmr06765@gmail.com>
+Date:   Sat Jun 25 16:55:46 2022 +0300
+
+    sit sidekiq&activejob
+
+[33mcommit 32017ef26b6b7feae41497c5ee2086661645f029[m
+Author: ayoub <anmr06765@gmail.com>
+Date:   Sat Jun 25 16:53:43 2022 +0300
+
+    sit sidekiq&activejob
+
+[33mcommit 2e41ad23db4b2acd014544885b43584e8705c7a6[m
+Author: ayoub <anmr06765@gmail.com>
+Date:   Sat Jun 25 16:53:26 2022 +0300
+
+    sit sidekiq&activejob
+
+[33mcommit 957070a60532a54a8e289ee3c98a8bfae6e4b8ab[m
+Author: ayoub <anmr06765@gmail.com>
+Date:   Sat Jun 25 16:41:48 2022 +0300
+
+    sit sidekiq&activejob
+
+[33mcommit 3cbd695e040776a02fcc216ec625d93b79efb8d7[m
+Author: ayoub <anmr06765@gmail.com>
+Date:   Sat Jun 25 14:55:54 2022 +0300
+
+    sit sidekiq&activejob
+
+[33mcommit 58ad83186a021c34242af25d50dd507087a2f356[m
+Author: ayoub <anmr06765@gmail.com>
+Date:   Mon Jun 20 12:14:48 2022 +0300
+
+    qq
+
+[33mcommit c24e73204f03bd2d03a243b4372934efac68e76a[m
+Author: ayoub <anmr06765@gmail.com>
+Date:   Mon Jun 20 09:21:04 2022 +0300
+
+    qq
+
+[33mcommit 4dd4d88b8992d3525f9d2ae6eeb93aa002b575c4[m
+Author: ayoub <anmr06765@gmail.com>
+Date:   Sun Jun 19 21:51:42 2022 +0300
+
+    qq
+
+[33mcommit d36497b6e0f5e704f4687d365756fb043ca4607f[m
+Author: ayoub <anmr06765@gmail.com>
+Date:   Sun Jun 19 21:15:01 2022 +0300
+
+    qq
+
+[33mcommit a5887f4d043974e3a2e125cc9d701cd20256c2dc[m
+Author: ayoub <anmr06765@gmail.com>
+Date:   Sun Jun 19 21:10:56 2022 +0300
+
+    qq
+
+[33mcommit 4560473e31e82dde1094ce73fe9d160c1bf79be1[m
+Author: ayoub <anmr06765@gmail.com>
+Date:   Sun Jun 19 17:12:29 2022 +0300
+
+    add user_id to Project model
+
+[33mcommit 6c613ce1c56f2f0f563eb4cb25b6694a3e2d1856[m
+Author: ayoub <anmr06765@gmail.com>
+Date:   Sun Jun 19 16:45:08 2022 +0300
+
+    add user_id to Project model
+
+[33mcommit c626f0d4e2a7710b06a22833d17a5b598a359d29[m
+Author: ayoub <anmr06765@gmail.com>
+Date:   Sat Jun 11 12:36:11 2022 +0300
+
+    all is done
+
+[33mcommit 508228f6fa230b3c0f1b380b5ec9995bef528c41[m
+Author: ayoub <anmr06765@gmail.com>
+Date:   Sat Jun 11 11:37:51 2022 +0300
+
+    without a mailer and image tag
+
+[33mcommit 42d6191bb690498ea0046726cbbd212d6a183c38[m
+Author: ayoub <anmr06765@gmail.com>
+Date:   Sat Jun 11 11:27:54 2022 +0300
+
+    without a mailer and image tag
+
+[33mcommit 7facf78b8ebaf7156052401600547a593fdeb593[m
+Author: ayoub <anmr06765@gmail.com>
+Date:   Sat Jun 11 10:51:37 2022 +0300
+
+    without a mailer and image tag
+
+[33mcommit 714be7283b5f59e0bf5e76323ebfa1da1cdc3d45[m
+Author: ayoub <anmr06765@gmail.com>
+Date:   Thu Jun 9 16:48:42 2022 +0300
+
+    dbpostgresql
+
+[33mcommit d7f820e581af201c1ec0cbc6d8cd4348b92c0eb7[m
+Author: ayoub <anmr06765@gmail.com>
+Date:   Thu Jun 9 14:31:13 2022 +0300
+
+    situp mailer
+
+[33mcommit c8632e4bbe27e82cd40181e16262aa5ddff7f635[m
+Author: ayoub <anmr06765@gmail.com>
+Date:   Thu Jun 9 09:13:14 2022 +0300
+
+    add a attachment for ticket
+
+[33mcommit 1a667c713177f7b485fc159e426ed2588bfe7b62[m
+Author: ayoub <anmr06765@gmail.com>
+Date:   Wed Jun 8 13:05:20 2022 +0300
+
+    add drop list
+
+[33mcommit 7b925c7a35e8c7aceab742cc9ea51639e207f9b3[m
+Author: ayoub <anmr06765@gmail.com>
+Date:   Wed Jun 8 11:10:24 2022 +0300
+
+    before add droplist
+
+[33mcommit 9c83940616b640a5d36f9a166e9dcf59096c7ba1[m
+Merge: b962068 a58d8b2
+Author: ayoubnmr <85315493+ayoubnmr@users.noreply.github.com>
+Date:   Mon Jun 6 17:03:16 2022 +0300
+
+    Merge pull request #1 from ayoubnmr/featur/ticket-ui
+    
+    add edit for ticket
+
+[33mcommit a58d8b2604a831f1f5063316937fbcd45a35d9aa[m[33m ([m[1;31morigin/featur/ticket-ui[m[33m, [m[1;32mfeatur/ticket-ui[m[33m)[m
+Author: ayoub <anmr06765@gmail.com>
+Date:   Mon Jun 6 16:41:05 2022 +0300
+
+    add edit for ticket
+
+[33mcommit b962068c85cfc1c0208fb7c12a13bb395284c164[m
+Author: ayoub <anmr06765@gmail.com>
+Date:   Mon Jun 6 10:20:23 2022 +0300
+
+    init
