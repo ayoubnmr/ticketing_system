@@ -36,7 +36,9 @@ class TicketsController < ApplicationController
   end 
 private  
   def set_project
-    @project = current_user.projects.find(params[:project_id])
+    @project = (Project.left_joins(:project_users).where(project_users: {user_id: current_user.id})
+    .or(Project.left_joins(:project_users).where(projects: {user_id: current_user.id}))).distinct
+    .find(params[:project_id])
   end
   def set_ticket
     @ticket = @project.tickets.find(params[:id])

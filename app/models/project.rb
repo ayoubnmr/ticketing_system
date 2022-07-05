@@ -10,4 +10,6 @@ class Project < ApplicationRecord
             ProjectmailerMailer.with(project: self, user: user).project_created.deliver_now
         end
     end
+    scope :by_users, lambda {|current_user|(left_joins(:project_users).where(project_users: {user_id: current_user}))
+                        .or(left_joins(:project_users).where(projects: {user_id: current_user})).distinct}
 end

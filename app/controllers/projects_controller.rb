@@ -5,20 +5,27 @@ class ProjectsController < ApplicationController
   def index
     if current_user.admin
       @projects = Project.all
-    else
-      @project_owner = Project.where(:user_id => current_user.id)
-      @project_adds  = current_user.projects
-      @projects = (@project_owner + @project_adds)
-    end
+    # else
+    #   @project_owner = Project.where(:user_id => current_user.id)
+    #   @project_adds  = current_user.projects
+    #   @projects = (@project_owner + @project_adds)
+    # end
+    else 
+
+    @projects = Project.by_users(current_user.id)
+   
+    #  @projects = Project.find_by_sql("
+    #   SELECT DISTINCT projects.* FROM projects
+    #   LEFT JOIN project_users ON project_users.project_id = projects.id
+    #   where ( projects.user_id = #{current_user.id} OR project_users.user_id = #{current_user.id})")
+    end  
       @project = Project.new
   end
   def show
     if current_user.admin
       @project = Project.find(params[:id])
-    elsif (@project.user_id == current_user.id)
-      @project = Project.where(:user_id => current_user.id).find(params[:id])
-    else  
-      @project = current_user.projects.find(params[:id])
+    else
+      @project = Project.by_users(current_user.id).find(params[:id])
     end
   end  
   def new
@@ -28,11 +35,8 @@ class ProjectsController < ApplicationController
   def edit
     if current_user.admin
       @project = Project.find(params[:id])
-    elsif 
-      (@project.user_id == current_user.id)
-      @project = Project.where(:user_id => current_user.id).find(params[:id])
-    else  
-      @project = current_user.projects.find(params[:id])
+    elsif (@project.user_id == current_user.id)
+      @project = Project.by_users(current_user.id).find(params[:id])
     end
   end
   def create
@@ -48,19 +52,10 @@ class ProjectsController < ApplicationController
     if current_user.admin
       if @project.update(project_params)
         redirect_to projects_path(@project), notice: 'Project was successfully updated.'
-      else
-        redirect_to new_project_path status: :unprocessable_entity
       end
     elsif  
       (@project.user_id == current_user.id)
-      @project = Project.where(:user_id => current_user.id).find(params[:id])
-      if @project.update(project_params)
-        redirect_to projects_path(@project), notice: 'Project was successfully updated.'
-      else
-        redirect_to new_project_path status: :unprocessable_entity
-      end
-    else  
-      @project = current_user.projects.find(params[:id])    
+      @project = Project.by_users(current_user.id).find(params[:id])
       if @project.update(project_params)
         redirect_to projects_path(@project), notice: 'Project was successfully updated.'
       else
@@ -70,18 +65,15 @@ class ProjectsController < ApplicationController
   end 
   def destroy
     if current_user.admin
-      @project = Project.find(params[:id])
       @project.destroy
+      redirect_to root_path, notice: 'Project was successfully destroyed.'
     elsif
       (@project.user_id == current_user.id)
-      @project = Project.where(:user_id => current_user.id).find(params[:id])
       @project.destroy
-    else
-      @project = current_user.projects.find(params[:id])
-      @project.destroy
+      redirect_to root_path, notice: 'Project was successfully destroyed.'
     end  
-      redirect_to projects_url, notice: 'Project was successfully destroyed.'
   end
+
 private
   
   def set_project
