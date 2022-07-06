@@ -35,10 +35,11 @@
                 </div>
               </div>
             </div>
-            <div class="mb-2">
-    <%= collection_check_boxes(:project, :user_ids, User.all, :id, :email)%> 
-  </div>
-         
+            <div class="mb-2" style="
+                    overflow-y: scroll;
+                      height: 100px">
+              <%= f.collection_check_boxes(:user_ids, User.without(current_user), :id,:email)%>
+            </div>
           <div class="pt-4 flex items-center space-x-4">
                <%= link_to 'cancel', root_path, class:"bg-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none"%>
               <%= f.button :submit ,class:"bg-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none"%>
