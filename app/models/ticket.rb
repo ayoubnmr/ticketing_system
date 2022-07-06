@@ -10,12 +10,12 @@ class Ticket < ApplicationRecord
   after_save :perform
 
   def perform
-<<<<<<< HEAD
     if Date.today == self.end && (status != 2)
       project.users.each do |user|
-=======
-   TicketEndJob.set(wait_until: self.end.to_time).perform_later(self, project ,user )
+
+        TicketEndJob.set(wait_until: self.end.to_time).perform_later(self, project ,user )
       
     end
   end 
 end
+end 
