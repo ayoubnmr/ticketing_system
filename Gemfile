@@ -19,7 +19,7 @@ gem 'pg', '~> 1.3', '>= 1.3.5'
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 gem "sidekiq", "~> 6.5"
-gem 'redis-namespace'
+gem 'redis-rails'
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
